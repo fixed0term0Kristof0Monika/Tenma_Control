@@ -1,13 +1,13 @@
 
-# source Tenma API: https://tenma-serial.readthedocs.io/en/latest/library/api.html
+
 
 from tenma import Tenma72_2540
-import time
+
 
 class Tenm:
     def __init__(self):
         try:
-            #for innitializing one should use the power supply name and the serial communication port name
+            #for initializing one should use the power supply name and the serial communication port name
             self.tenma = Tenma72_2540("COM3") 
         except:
             print("Couldn't find com port")
@@ -55,12 +55,3 @@ class Tenm:
         except:
             print("Can't read current")
            
-pwsupp = Tenm()
-print("Power supply version: ",pwsupp.version())
-pwsupp.setV(21.33)
-pwsupp.setC(2.311)
-print("Current: ",pwsupp.getC())
-print("Voltage: ", pwsupp.getV())
-pwsupp.tenma_on()
-time.sleep(3)
-pwsupp.tenma_off()
